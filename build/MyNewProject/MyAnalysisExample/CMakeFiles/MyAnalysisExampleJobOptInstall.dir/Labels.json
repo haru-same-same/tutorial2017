@@ -1,0 +1,19 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "/home/abes/tutorial2017/build/x86_64-centos7-gcc62-opt/jobOptions/MyAnalysisExample/MyAnalysisAlg_options.py"
+		},
+		{
+			"file" : "/home/abes/tutorial2017/build/x86_64-centos7-gcc62-opt/jobOptions/MyAnalysisExample/MyAnalysisAlg_options.py.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"MyAnalysisExample"
+		],
+		"name" : "MyAnalysisExampleJobOptInstall"
+	}
+}

@@ -1,0 +1,10 @@
+[release_metadata]
+release:21.0.20
+validation:None
+base release:None
+nightly name:private
+project name:WorkDir
+nightly release:private
+nightly jobid:0000
+date:2019-04-15 20:06
+compiler:GNU-6.2.0

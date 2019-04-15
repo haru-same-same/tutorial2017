@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<!-- Edited By POOL -->
+<!DOCTYPE POOLFILECATALOG SYSTEM "InMemory">
+<POOLFILECATALOG>
+  <File ID="D75FBBE0-3C90-E24D-B2B8-9FE61283CD7E">
+    <physical>
+      <pfn filetype="ROOT_All" name="/home/nobe/data2086b/tutorial2017/DxAODs/data17_13TeV.00328374.physics_Main.deriv.DAOD_HIGG2D4.f836_m1824_p3213/DAOD_HIGG2D4.11597487._000001.pool.root.1"/>
+    </physical>
+    <logical/>
+  </File>
+
+</POOLFILECATALOG>

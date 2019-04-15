@@ -1,0 +1,51 @@
+Determining if the pthread_create exist failed with the following output:
+Change Dir: /home/abes/tutorial2017/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/gmake" "cmTC_5c884/fast"
+/usr/bin/gmake -f CMakeFiles/cmTC_5c884.dir/build.make CMakeFiles/cmTC_5c884.dir/build
+gmake[1]: Entering directory `/home/abes/tutorial2017/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_5c884.dir/CheckSymbolExists.c.o
+/cvmfs/atlas.cern.ch/repo/sw/software/21.0/sw/lcg/releases/gcc/6.2.0binutils/x86_64-slc6-gcc62-opt/bin/gcc    -o CMakeFiles/cmTC_5c884.dir/CheckSymbolExists.c.o   -c /home/abes/tutorial2017/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_5c884
+/cvmfs/atlas.cern.ch/repo/ATLASLocalRootBase/x86_64/Cmake/3.11.0/Linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_5c884.dir/link.txt --verbose=1
+/cvmfs/atlas.cern.ch/repo/sw/software/21.0/sw/lcg/releases/gcc/6.2.0binutils/x86_64-slc6-gcc62-opt/bin/gcc     -Wl,--as-needed -Wl,--hash-style=both  -rdynamic CMakeFiles/cmTC_5c884.dir/CheckSymbolExists.c.o  -o cmTC_5c884 
+CMakeFiles/cmTC_5c884.dir/CheckSymbolExists.c.o: In function `main':
+CheckSymbolExists.c:(.text+0x16): undefined reference to `pthread_create'
+collect2: error: ld returned 1 exit status
+gmake[1]: *** [cmTC_5c884] Error 1
+gmake[1]: Leaving directory `/home/abes/tutorial2017/build/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_5c884/fast] Error 2
+
+File /home/abes/tutorial2017/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <pthread.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef pthread_create
+  return ((int*)(&pthread_create))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /home/abes/tutorial2017/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/gmake" "cmTC_11364/fast"
+/usr/bin/gmake -f CMakeFiles/cmTC_11364.dir/build.make CMakeFiles/cmTC_11364.dir/build
+gmake[1]: Entering directory `/home/abes/tutorial2017/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_11364.dir/CheckFunctionExists.c.o
+/cvmfs/atlas.cern.ch/repo/sw/software/21.0/sw/lcg/releases/gcc/6.2.0binutils/x86_64-slc6-gcc62-opt/bin/gcc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_11364.dir/CheckFunctionExists.c.o   -c /cvmfs/atlas.cern.ch/repo/ATLASLocalRootBase/x86_64/Cmake/3.11.0/Linux-x86_64/share/cmake-3.11/Modules/CheckFunctionExists.c
+Linking C executable cmTC_11364
+/cvmfs/atlas.cern.ch/repo/ATLASLocalRootBase/x86_64/Cmake/3.11.0/Linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_11364.dir/link.txt --verbose=1
+/cvmfs/atlas.cern.ch/repo/sw/software/21.0/sw/lcg/releases/gcc/6.2.0binutils/x86_64-slc6-gcc62-opt/bin/gcc  -DCHECK_FUNCTION_EXISTS=pthread_create   -Wl,--as-needed -Wl,--hash-style=both  -rdynamic CMakeFiles/cmTC_11364.dir/CheckFunctionExists.c.o  -o cmTC_11364 -lpthreads 
+/cvmfs/sft.cern.ch/lcg/contrib/bintuils/2.28/x86_64-slc6/bin/ld: cannot find -lpthreads
+collect2: error: ld returned 1 exit status
+gmake[1]: *** [cmTC_11364] Error 1
+gmake[1]: Leaving directory `/home/abes/tutorial2017/build/CMakeFiles/CMakeTmp'
+gmake: *** [cmTC_11364/fast] Error 2
+
+

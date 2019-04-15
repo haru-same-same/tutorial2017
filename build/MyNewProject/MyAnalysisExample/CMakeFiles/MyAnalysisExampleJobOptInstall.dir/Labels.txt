@@ -1,0 +1,5 @@
+# Target labels
+ MyAnalysisExample
+# Source files and their labels
+/home/abes/tutorial2017/build/x86_64-centos7-gcc62-opt/jobOptions/MyAnalysisExample/MyAnalysisAlg_options.py
+/home/abes/tutorial2017/build/x86_64-centos7-gcc62-opt/jobOptions/MyAnalysisExample/MyAnalysisAlg_options.py.rule

@@ -1,0 +1,40 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../MyNewProject/MyAnalysisExample/MyAnalysisExample/MyAnalysisAlg.h
+AthenaBaseComps/AthAlgorithm.h
+../MyNewProject/MyAnalysisExample/MyAnalysisExample/AthenaBaseComps/AthAlgorithm.h
+MuonSelectorTools/IMuonSelectionTool.h
+../MyNewProject/MyAnalysisExample/MyAnalysisExample/MuonSelectorTools/IMuonSelectionTool.h
+
+/home/abes/tutorial2017/MyNewProject/MyAnalysisExample/src/MyAnalysisAlg.cxx
+xAODEventInfo/EventInfo.h
+/home/abes/tutorial2017/MyNewProject/MyAnalysisExample/src/xAODEventInfo/EventInfo.h
+xAODMuon/MuonContainer.h
+/home/abes/tutorial2017/MyNewProject/MyAnalysisExample/src/xAODMuon/MuonContainer.h
+GaudiKernel/ITHistSvc.h
+/home/abes/tutorial2017/MyNewProject/MyAnalysisExample/src/GaudiKernel/ITHistSvc.h
+TH1.h
+/home/abes/tutorial2017/MyNewProject/MyAnalysisExample/src/TH1.h
+TH2.h
+/home/abes/tutorial2017/MyNewProject/MyAnalysisExample/src/TH2.h
+TTree.h
+/home/abes/tutorial2017/MyNewProject/MyAnalysisExample/src/TTree.h
+MyAnalysisExample/MyAnalysisAlg.h
+/home/abes/tutorial2017/MyNewProject/MyAnalysisExample/src/MyAnalysisExample/MyAnalysisAlg.h
+
+/home/abes/tutorial2017/MyNewProject/MyAnalysisExample/src/components/MyNewPackage_entries.cxx
+GaudiKernel/DeclareFactoryEntries.h
+/home/abes/tutorial2017/MyNewProject/MyAnalysisExample/src/components/GaudiKernel/DeclareFactoryEntries.h
+MyAnalysisExample/MyAnalysisAlg.h
+/home/abes/tutorial2017/MyNewProject/MyAnalysisExample/src/components/MyAnalysisExample/MyAnalysisAlg.h
+
+/home/abes/tutorial2017/MyNewProject/MyAnalysisExample/src/components/MyNewPackage_load.cxx
+GaudiKernel/LoadFactoryEntries.h
+/home/abes/tutorial2017/MyNewProject/MyAnalysisExample/src/components/GaudiKernel/LoadFactoryEntries.h
+

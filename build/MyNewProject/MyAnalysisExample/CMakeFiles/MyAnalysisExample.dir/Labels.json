@@ -1,0 +1,22 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "/home/abes/tutorial2017/MyNewProject/MyAnalysisExample/src/components/MyNewPackage_entries.cxx"
+		},
+		{
+			"file" : "/home/abes/tutorial2017/MyNewProject/MyAnalysisExample/src/components/MyNewPackage_load.cxx"
+		},
+		{
+			"file" : "/home/abes/tutorial2017/MyNewProject/MyAnalysisExample/src/MyAnalysisAlg.cxx"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"MyAnalysisExample"
+		],
+		"name" : "MyAnalysisExample"
+	}
+}

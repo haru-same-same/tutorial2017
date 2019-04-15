@@ -1,0 +1,6 @@
+# Target labels
+ MyAnalysisExample
+# Source files and their labels
+/home/abes/tutorial2017/MyNewProject/MyAnalysisExample/src/components/MyNewPackage_entries.cxx
+/home/abes/tutorial2017/MyNewProject/MyAnalysisExample/src/components/MyNewPackage_load.cxx
+/home/abes/tutorial2017/MyNewProject/MyAnalysisExample/src/MyAnalysisAlg.cxx

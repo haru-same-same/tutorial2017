@@ -1,0 +1,26 @@
+<!-- Auto-generated file, please do not edit -->
+<Project name="WorkDir" >
+   <SubProject name="AthenaBaseComps" >
+   </SubProject>
+   <SubProject name="GaudiKernel" >
+   </SubProject>
+   <SubProject name="xAODEventInfo" >
+   </SubProject>
+   <SubProject name="xAODMuon" >
+   </SubProject>
+   <SubProject name="MuonIdHelpers" >
+   </SubProject>
+   <SubProject name="MuonPrepRawData" >
+   </SubProject>
+   <SubProject name="MuonSelectorTools" >
+   </SubProject>
+   <SubProject name="MyAnalysisExample" >
+      <Dependency name="AthenaBaseComps" />
+      <Dependency name="GaudiKernel" />
+      <Dependency name="xAODEventInfo" />
+      <Dependency name="xAODMuon" />
+      <Dependency name="MuonIdHelpers" />
+      <Dependency name="MuonPrepRawData" />
+      <Dependency name="MuonSelectorTools" />
+   </SubProject>
+</Project>
