@@ -67,9 +67,9 @@ P4UpdateOptions:
 P4UpdateCustom: 
 
 # Generic update command
-UpdateCommand: 
+UpdateCommand: /cvmfs/atlas.cern.ch/repo/ATLASLocalRootBase/x86_64/git/2.11.1-x86_64-centos7/bin/git
 UpdateOptions: 
-UpdateType: 
+UpdateType: git
 
 # Compiler info
 Compiler: /cvmfs/atlas.cern.ch/repo/sw/software/21.0/sw/lcg/releases/gcc/6.2.0binutils/x86_64-slc6-gcc62-opt/bin/g++
