@@ -27,6 +27,8 @@ TTree.h
 /home/abes/tutorial2017/MyNewProject/MyAnalysisExample/src/TTree.h
 MyAnalysisExample/MyAnalysisAlg.h
 /home/abes/tutorial2017/MyNewProject/MyAnalysisExample/src/MyAnalysisExample/MyAnalysisAlg.h
+cmath
+-
 
 /home/abes/tutorial2017/MyNewProject/MyAnalysisExample/src/components/MyNewPackage_entries.cxx
 GaudiKernel/DeclareFactoryEntries.h
