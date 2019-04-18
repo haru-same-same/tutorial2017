@@ -25,7 +25,6 @@ class MyAnalysisAlg:public AthAlgorithm
   TH1D *m_h_muon_pt;
   TH1D *m_h_muon_eta;
   TH1D *m_h_muon_phi;
-  TH1D *m_h_muon_inv_mass;
   TH2D *m_h2_muon_eta_phi;
   TTree *m_tree;
   int m_eventNumber;
@@ -36,6 +35,14 @@ class MyAnalysisAlg:public AthAlgorithm
   std::vector<double> *m_muon_eta;
   std::vector<double> *m_muon_pt;
   std::vector<double> *m_muon_e;
+  std::vector<double> *m_muon_phi_sel1;
+  std::vector<double> *m_muon_eta_sel1;
+  std::vector<double> *m_muon_pt_sel1;
+  std::vector<double> *m_muon_e_sel1;
+  std::vector<double> *m_muon_phi_sel2;
+  std::vector<double> *m_muon_eta_sel2;
+  std::vector<double> *m_muon_pt_sel2;
+  std::vector<double> *m_muon_e_sel2;
   std::vector<double> *m_muon_charge;
   ToolHandle<CP::IMuonSelectionTool> m_selTool;
 };

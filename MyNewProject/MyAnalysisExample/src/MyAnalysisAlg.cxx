@@ -36,8 +36,6 @@ StatusCode MyAnalysisAlg::initialize() {
   m_thistSvc->regHist("/MyNewPackage/Muon/h_muon_eta",m_h_muon_eta).setChecked();
   m_h_muon_phi = new TH1D("h_muon_phi","Muon #phi [radian]",100,-M_PI,M_PI);
   m_thistSvc->regHist("/MyNewPackage/Muon/h_muon_phi",m_h_muon_phi).setChecked();
-  m_h_muon_inv_mass = new TH1D("h_muon_inv_mass","Muon invaliant mass [GeV]",100,0.,250);
-  m_thistSvc->regHist("/MyNewPackage/Muon/h_muon_inv_mass",m_h_muon_inv_mass).setChecked();
   m_h2_muon_eta_phi = new TH2D("h2_muon_eta_phi","Muon #eta vs #phi",100,-3.0,3.0,100,-M_PI,M_PI);
   m_thistSvc->regHist("/MyNewPackage/Muon/h2_muon_eta_phi",m_h2_muon_eta_phi).setChecked();
     
@@ -56,6 +54,25 @@ StatusCode MyAnalysisAlg::initialize() {
   m_muon_e = new std::vector<double>;
   m_tree->Branch("muon_e",&m_muon_e);
   m_muon_charge = new std::vector<double>;
+ 
+  m_muon_phi_sel1 = new std::vector<double>;
+  m_tree->Branch("muon_phi_sel1",&m_muon_phi_sel1);
+  m_muon_eta_sel1 = new std::vector<double>;
+  m_tree->Branch("muon_eta_sel1",&m_muon_eta_sel1);
+  m_muon_pt_sel1 = new std::vector<double>;
+  m_tree->Branch("muon_pt_sel1",&m_muon_pt_sel1);
+  m_muon_e_sel1 = new std::vector<double>;
+  m_tree->Branch("muon_e_sel1",&m_muon_e_sel1);
+ 
+  m_muon_phi_sel2 = new std::vector<double>;
+  m_tree->Branch("muon_phi_sel2",&m_muon_phi_sel2);
+  m_muon_eta_sel2 = new std::vector<double>;
+  m_tree->Branch("muon_eta_sel2",&m_muon_eta_sel2);
+  m_muon_pt_sel2 = new std::vector<double>;
+  m_tree->Branch("muon_pt_sel2",&m_muon_pt_sel2);
+  m_muon_e_sel2 = new std::vector<double>;
+  m_tree->Branch("muon_e_sel2",&m_muon_e_sel2);
+
   m_tree->Branch("muon_charge",&m_muon_charge);
   m_thistSvc->regTree("/MyNewPackage/MyTree",m_tree).setChecked();
   m_tree->Print();
@@ -70,6 +87,14 @@ StatusCode MyAnalysisAlg::finalize() {
   delete m_muon_eta; m_muon_eta = 0;
   delete m_muon_pt; m_muon_pt = 0;
   delete m_muon_e; m_muon_e = 0;
+  delete m_muon_phi_sel1; m_muon_phi_sel1 = 0;
+  delete m_muon_eta_sel1; m_muon_eta_sel1 = 0;
+  delete m_muon_pt_sel1; m_muon_pt_sel1 = 0;
+  delete m_muon_e_sel1; m_muon_e_sel1 = 0;
+  delete m_muon_phi_sel2; m_muon_phi_sel2 = 0;
+  delete m_muon_eta_sel2; m_muon_eta_sel2 = 0;
+  delete m_muon_pt_sel2; m_muon_pt_sel2 = 0;
+  delete m_muon_e_sel2; m_muon_e_sel2 = 0;
   delete m_muon_charge; m_muon_charge = 0;
   return StatusCode::SUCCESS;
 }
@@ -83,6 +108,14 @@ StatusCode MyAnalysisAlg::execute() {
   m_muon_eta->clear();
   m_muon_pt->clear();
   m_muon_e->clear();
+  m_muon_phi_sel1->clear();
+  m_muon_eta_sel1->clear();
+  m_muon_pt_sel1->clear();
+  m_muon_e_sel1->clear();
+  m_muon_phi_sel2->clear();
+  m_muon_eta_sel2->clear();
+  m_muon_pt_sel2->clear();
+  m_muon_e_sel2->clear();
   m_muon_charge->clear();
     
   //Event information
@@ -106,7 +139,6 @@ StatusCode MyAnalysisAlg::execute() {
   double m_muon_phi_2 = 0;
   double m_muon_eta_1 = 0;
   double m_muon_eta_2 = 0;
-  double m_muon_inv_mass = 0;
  
   //Muon
   const xAOD::MuonContainer *muonContainer = 0;
@@ -170,8 +202,15 @@ StatusCode MyAnalysisAlg::execute() {
   m_h_nMuons->Fill(nMuons);
  
   if(m_muon_pt_2 != 0){
-    ATH_MSG_INFO("p_t No.1 is:" << m_muon_pt_1 << " , p_t No.2 is:" << m_muon_pt_2 << " , inv_mass is:" << m_muon_inv_mass);
-    m_h_muon_inv_mass->Fill(m_muon_inv_mass/1000.);
+    ATH_MSG_INFO("p_t No.1 is:" << m_muon_pt_1 << " , p_t No.2 is:" << m_muon_pt_2);
+    m_muon_phi_sel1->push_back(m_muon_phi_1);
+    m_muon_eta_sel1->push_back(m_muon_eta_1);
+    m_muon_pt_sel1->push_back(m_muon_pt_1/1000.);
+    m_muon_e_sel1->push_back(m_muon_e_1/1000.);
+    m_muon_phi_sel2->push_back(m_muon_phi_2);
+    m_muon_eta_sel2->push_back(m_muon_eta_2);
+    m_muon_pt_sel2->push_back(m_muon_pt_2/1000.);
+    m_muon_e_sel2->push_back(m_muon_e_2/1000.);
   }
     
   m_nMuons = static_cast<int>(nMuons);
