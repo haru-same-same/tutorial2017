@@ -7,23 +7,6 @@
 #include "MyAnalysisExample/MyAnalysisAlg.h"
 #include <cmath>
 
-//Calculating invariant mass
-double inv_mass_calc(double pt1,double phi1,double eta1,double e1,double pt2,double phi2,double eta2,double e2){
-    double theta1 = 2*atan(exp(-eta1)); //Calculate theta from eta
-    double theta2 = 2*atan(exp(-eta2)); //Calculate theta from eta
- 
-    double p1_x = pt1*cos(phi1);
-    double p1_y = pt1*sin(phi1);
-    double p1_z = pt1*cos(theta1)/sin(theta1);
- 
-    double p2_x = pt2*cos(phi2);
-    double p2_y = pt2*sin(phi2);
-    double p2_z = pt2*cos(theta2)/sin(theta2);
- 
-    double invmass = sqrt((e1 + e2)*(e1 + e2) - (p1_x + p2_x)*(p1_x + p2_x) - (p1_y + p2_y)*(p1_y + p2_y) - (p1_z + p2_z)*(p1_z + p2_z));
-    return invmass;
-}
-
 
 MyAnalysisAlg::MyAnalysisAlg(const std::string& name, ISvcLocator* pSvcLocator)
   : AthAlgorithm(name, pSvcLocator),
@@ -125,6 +108,9 @@ StatusCode MyAnalysisAlg::execute() {
   double m_muon_eta_2 = 0;
   double m_muon_inv_mass = 0;
  
+  TLorentzVector mu1;
+  TLorentzVector mu2;
+ 
   //Muon
   const xAOD::MuonContainer *muonContainer = 0;
   sc = evtStore()->retrieve(muonContainer,"Muons");
@@ -187,7 +173,10 @@ StatusCode MyAnalysisAlg::execute() {
   m_h_nMuons->Fill(nMuons);
  
   if(m_muon_pt_2 != 0){
-    m_muon_inv_mass = inv_mass_calc(m_muon_pt_1,m_muon_phi_1,m_muon_eta_1,m_muon_e_1,m_muon_pt_2,m_muon_phi_2,m_muon_eta_2,m_muon_e_2);
+    mu1.SetPtEtaPhiE(m_muon_pt_1,m_muon_eta_1,m_muon_phi_1,m_muon_e_1);
+    mu2.SetPtEtaPhiE(m_muon_pt_2,m_muon_eta_2,m_muon_phi_2,m_muon_e_2);
+    TLorentzVector z = mu1 + mu2;
+    m_muon_inv_mass = z.M();
     ATH_MSG_INFO("p_t No.1 is:" << m_muon_pt_1 << " , p_t No.2 is:" << m_muon_pt_2 << " , inv_mass is:" << m_muon_inv_mass);
     m_h_muon_inv_mass->Fill(m_muon_inv_mass/1000.);
   }
