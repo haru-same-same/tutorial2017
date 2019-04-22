@@ -3,6 +3,9 @@
 
 #include "AthenaBaseComps/AthAlgorithm.h"
 #include "MuonSelectorTools/IMuonSelectionTool.h"
+#include "GaudiKernel/ToolHandle.h"
+
+namespace Muon{class MuonIdHelperTool;}
 
 class ITHistSvc;
 class TH1D;
@@ -38,6 +41,8 @@ class MyAnalysisAlg:public AthAlgorithm
   std::vector<double> *m_muon_e;
   std::vector<double> *m_muon_charge;
   ToolHandle<CP::IMuonSelectionTool> m_selTool;
+  ToolHandle<Muon::MuonIdHelperTool> m_idHelper;
+  TH2D *m_h2_tgc_x_y;
 };
 
 #endif // MYANALYSISALG_H

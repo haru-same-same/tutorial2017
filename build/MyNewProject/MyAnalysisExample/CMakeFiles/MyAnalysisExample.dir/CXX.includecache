@@ -11,6 +11,8 @@ AthenaBaseComps/AthAlgorithm.h
 ../MyNewProject/MyAnalysisExample/MyAnalysisExample/AthenaBaseComps/AthAlgorithm.h
 MuonSelectorTools/IMuonSelectionTool.h
 ../MyNewProject/MyAnalysisExample/MyAnalysisExample/MuonSelectorTools/IMuonSelectionTool.h
+GaudiKernel/ToolHandle.h
+../MyNewProject/MyAnalysisExample/MyAnalysisExample/GaudiKernel/ToolHandle.h
 
 /home/abes/tutorial2017/MyNewProject/MyAnalysisExample/src/MyAnalysisAlg.cxx
 xAODEventInfo/EventInfo.h
@@ -27,6 +29,10 @@ TTree.h
 /home/abes/tutorial2017/MyNewProject/MyAnalysisExample/src/TTree.h
 MyAnalysisExample/MyAnalysisAlg.h
 /home/abes/tutorial2017/MyNewProject/MyAnalysisExample/src/MyAnalysisExample/MyAnalysisAlg.h
+MuonPrepRawData/TgcPrepDataContainer.h
+/home/abes/tutorial2017/MyNewProject/MyAnalysisExample/src/MuonPrepRawData/TgcPrepDataContainer.h
+MuonIdHelpers/MuonIdHelperTool.h
+/home/abes/tutorial2017/MyNewProject/MyAnalysisExample/src/MuonIdHelpers/MuonIdHelperTool.h
 cmath
 -
 

@@ -5,6 +5,8 @@
 #include "TH2.h"
 #include "TTree.h"
 #include "MyAnalysisExample/MyAnalysisAlg.h"
+#include "MuonPrepRawData/TgcPrepDataContainer.h"
+#include "MuonIdHelpers/MuonIdHelperTool.h"
 #include <cmath>
 
 //Calculating invariant mass
@@ -57,6 +59,8 @@ StatusCode MyAnalysisAlg::initialize() {
   m_thistSvc->regHist("/MyNewPackage/Muon/h_muon_inv_mass",m_h_muon_inv_mass).setChecked();
   m_h2_muon_eta_phi = new TH2D("h2_muon_eta_phi","Muon #eta vs #phi",100,-3.0,3.0,100,-M_PI,M_PI);
   m_thistSvc->regHist("/MyNewPackage/Muon/h2_muon_eta_phi",m_h2_muon_eta_phi).setChecked();
+  m_h2_tgc_x_y = new TH2D("h2_tgc_x_y","TGC hits",500,-15000,15000,500,-15000,15000);
+  m_thistSvc->regHist("/MyNewPackage/TGC/h2_tgc_x_y",m_h2_tgc_x_y).setChecked();
     
   m_tree = new TTree("MyTree","Ntuple variables collection");
   m_tree->Branch("runNumber",&m_runNumber,"runNumber/I");
@@ -76,6 +80,10 @@ StatusCode MyAnalysisAlg::initialize() {
   m_tree->Branch("muon_charge",&m_muon_charge);
   m_thistSvc->regTree("/MyNewPackage/MyTree",m_tree).setChecked();
   m_tree->Print();
+ 
+  m_idHelper.setTypeAndName("Muon::MuonIdHelperTool/MuonIdHelperTool");
+  m_idHelper.retrieve().setChecked();
+ 
   return StatusCode::SUCCESS;
 }
 
@@ -124,6 +132,37 @@ StatusCode MyAnalysisAlg::execute() {
   double m_muon_eta_1 = 0;
   double m_muon_eta_2 = 0;
   double m_muon_inv_mass = 0;
+ 
+  //TGC hits
+  const Muon::TgcPrepDataContainer *tgcContainer = 0;
+  sc = evtStore()->retrieve(tgcContainer,"TGC_MeasurementsAllBCs");
+ 
+  if(StatusCode::SUCCESS != sc || !tgcContainer){
+    ATH_MSG_WARNING("Could not retrieve Muons");
+    return StatusCode::SUCCESS;
+  }
+ 
+  Muon::TgcPrepDataContainer::const_iterator tpdc_it;
+  Muon::TgcPrepDataCollection::const_iterator cit;
+ 
+  for(tpdc_it = tgcContainer->begin(); tpdc_it != tgcContainer->end(); tpdc_it++){
+    for(cit = (*tpdc_it)->begin(); cit != (*tpdc_it)->end(); cit++){
+        const Muon::TgcPrepData *tgc = *cit;
+        
+        //only current bunch hits
+        if((tgc->getBcBitMap()&Muon::TgcPrepData::BCBIT_CURRENT)!=Muon::TgcPrepData::BCBIT_CURRENT)
+            continue;
+        
+        const TgcIdHelper& tgcIdHelper = m_idHelper->tgcIdHelper();
+        const MuonGM::TgcReadoutElement *element = tgc->detectorElement();
+        const Identifier id = tgc->identify();
+        const int gasGap = tgcIdHelper.gasGap(id);
+        const int channel = tgcIdHelper.channel(id);
+        const bool isStrip = tgcIdHelper.isStrip(id);
+        const Amg::Vector3D& pos = isStrip ? element->stripPos(gasGap,channel) : element->gangPos(gasGap,channel);
+        m_h2_tgc_x_y->Fill(pos[0],pos[1]);
+    }
+  } 
  
   //Muon
   const xAOD::MuonContainer *muonContainer = 0;

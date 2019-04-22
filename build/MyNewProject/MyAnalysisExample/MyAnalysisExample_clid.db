@@ -70,12 +70,12 @@
 4052; TGCSimHitCollection; MuonGeoModelTest-04-00-17; AtlasHitsVector<TGCSimHit>
 4053; CSCSimHitCollection; MuonGeoModelTest-04-00-17; AtlasHitsVector<CSCSimHit>
 4054; MDTSimHitCollection; MuonGeoModelTest-04-00-17; AtlasHitsVector<MDTSimHit>
-4170; MdtIdHelper; MuonIdHelpers-01-02-20; MdtIdHelper
-4171; CscIdHelper; MuonIdHelpers-01-02-20; CscIdHelper
-4172; RpcIdHelper; MuonIdHelpers-01-02-20; RpcIdHelper
-4173; TgcIdHelper; MuonIdHelpers-01-02-20; TgcIdHelper
-4174; sTgcIdHelper; MuonIdHelpers-01-02-20; sTgcIdHelper
-4175; MmIdHelper; MuonIdHelpers-01-02-20; MmIdHelper
+4170; MdtIdHelper; MyAnalysisExample-00-00-00; MdtIdHelper
+4171; CscIdHelper; MyAnalysisExample-00-00-00; CscIdHelper
+4172; RpcIdHelper; MyAnalysisExample-00-00-00; RpcIdHelper
+4173; TgcIdHelper; MyAnalysisExample-00-00-00; TgcIdHelper
+4174; sTgcIdHelper; MyAnalysisExample-00-00-00; sTgcIdHelper
+4175; MmIdHelper; MyAnalysisExample-00-00-00; MmIdHelper
 4179; CSC_RAWDATACOLLECTION_vector; CscOverlay-00-02-19; DataVector<CscRawDataCollection>
 4180; MDT_CSM_vector; MuonRDO-01-06-07; DataVector<MdtCsm>
 4181; RPC_PAD_vector; MuonRDO-01-06-07; DataVector<RpcPad>
@@ -96,7 +96,7 @@
 4196; RpcDigitCollection; MuonDigitContainer-01-02-23; RpcDigitCollection
 4197; TgcDigitCollection; TgcOverlay-00-05-00; TgcDigitCollection
 4198; CscDigitCollection; MuonDigitContainer-01-02-23; CscDigitCollection
-4500; MuonGM::MuonDetectorManager; MuonGeoModel-01-09-23; MuonGM::MuonDetectorManager
+4500; MuonGM::MuonDetectorManager; MyAnalysisExample-00-00-00; MuonGM::MuonDetectorManager
 6000; ROIB::RoIBResult; OverlayCommonAlgs-00-04-15; ROIB::RoIBResult
 6001; ROIB::RecRoIBResult; OverlayCommonAlgs-00-04-15; ROIB::RecRoIBResult
 6013; LVL1CTP::CTPSLink; TrigT1Interfaces-01-05-37; LVL1CTP::CTPSLink
@@ -867,7 +867,7 @@
 900345678; LArWheelCalculator; LArGeoTBEC-00-00-27; LArWheelCalculator
 900345679; LArWheelSolidDDProxy; Geo2G4-00-06-15; LArWheelSolidDDProxy
 947021836; TRTUncompressedHitCollection; OverlayCommonAlgs-00-04-15; AtlasHitsVector<TRTUncompressedHit>
-1053454200; Muon::CscPrepDataContainer; MuonGeoModelTest-04-00-17; Muon::MuonPrepDataContainer<Muon::MuonPrepDataCollection<Muon::CscPrepData> >
+1053454200; Muon::CscPrepDataContainer; MyAnalysisExample-00-00-00; Muon::MuonPrepDataContainer<Muon::MuonPrepDataCollection<Muon::CscPrepData> >
 1070450393; CompositeParticleContainer; ParticleEvent-00-22-30; CompositeParticleContainer
 1073853171; Analysis::MuonContainer; eflowEvent-00-02-76; Analysis::MuonContainer
 1074460253; StoredLArCalibHitContainers; OverlayCommonAlgs-00-04-15; StoredLArCalibHitContainers
@@ -948,7 +948,7 @@
 1122443126; ALFA_LocRecODEvCollection; ALFA_CLinkAlg-00-00-22; ALFA_LocRecODEvCollection
 1123027134; TrigSpacePointCountsCollection; TrigBSExtraction-00-00-54; TrigSpacePointCountsCollection
 1123888166; xAOD::TrackMeasurementValidationContainer; xAODTracking-00-13-34; DataVector<xAOD::TrackMeasurementValidation_v1>
-1124991377; BLineMapContainer; MuonGeoModel-01-09-23; std::map<Identifier,BLinePar*,std::less<Identifier>,std::allocator<std::pair<Identifier const,BLinePar*> > >
+1124991377; BLineMapContainer; MyAnalysisExample-00-00-00; std::map<Identifier,BLinePar*,std::less<Identifier>,std::allocator<std::pair<Identifier const,BLinePar*> > >
 1126179625; xAOD::TrigVertexCountsContainer; TrigSteeringEvent-01-06-30; DataVector<xAOD::TrigVertexCounts_v1>
 1127672441; ALFA_RawDataCollection; ALFA_RawDataByteStreamCnv-00-00-24; ALFA_RawDataCollection
 1128059587; xAOD::L2IsoMuonAuxContainer; TrigSteeringEvent-01-06-30; xAOD::L2IsoMuonAuxContainer_v1
@@ -985,7 +985,7 @@
 1152973036; xAOD::RODHeaderContainer; xAODTrigL1Calo-00-00-64; DataVector<xAOD::RODHeader_v2>
 1153319721; xAOD::TrigCaloClusterContainer; TrigSteeringEvent-01-06-30; DataVector<xAOD::TrigCaloCluster_v1>
 1153381047; xAOD::MuonAuxContainer; xAODMuon-00-18-06; xAOD::MuonAuxContainer_v4
-1153454201; Muon::MdtPrepDataContainer; MuonGeoModelTest-04-00-17; Muon::MuonPrepDataContainer<Muon::MuonPrepDataCollection<Muon::MdtPrepData> >
+1153454201; Muon::MdtPrepDataContainer; MyAnalysisExample-00-00-00; Muon::MuonPrepDataContainer<Muon::MuonPrepDataCollection<Muon::MdtPrepData> >
 1154879695; AFP_TDDigiCollection; AFP_LocReco-00-00-10; AtlasHitsVector<AFP_TDDigi>
 1154908528; xAOD::NeutralParticleAuxContainer; xAODTracking-00-13-34; xAOD::NeutralParticleAuxContainer_v1
 1155025655; xAOD::HIEventShapeContainer; TrigSteeringEvent-01-06-30; DataVector<xAOD::HIEventShape_v2>
@@ -1062,7 +1062,7 @@
 1196210546; MuonCalibPatternCollection; MuonCalibExtraTreeAlg-01-00-11; DataVector<MuonCalib::MuonCalibPattern>
 1197261491; xAOD::ALFADataAuxContainer; ALFA_CLinkAlg-00-00-22; xAOD::ALFADataAuxContainer_v1
 1198425825; xAOD::JEMRoIContainer; xAODTrigL1Calo-00-00-64; DataVector<xAOD::JEMRoI_v1>
-1198729422; MdtAsBuiltMapContainer; MuonGeoModel-01-09-23; std::map<Identifier,MdtAsBuiltPar*,std::less<Identifier>,std::allocator<std::pair<Identifier const,MdtAsBuiltPar*> > >
+1198729422; MdtAsBuiltMapContainer; MyAnalysisExample-00-00-00; std::map<Identifier,MdtAsBuiltPar*,std::less<Identifier>,std::allocator<std::pair<Identifier const,MdtAsBuiltPar*> > >
 1198824686; TruthEtIsolationsContainer; AnalysisTools-00-06-11; TruthEtIsolationsContainer
 1198888161; InDet::TRT_DriftCircleCollection; InDetEventCnvTools-02-01-08; Trk::PrepRawDataCollection<InDet::TRT_DriftCircle>
 1200227006; xAOD::TruthEventContainer; xAODTruth-00-01-17; DataVector<xAOD::TruthEvent_v1>
@@ -1157,7 +1157,7 @@
 1251848444; xAOD::JEMHitsContainer; xAODTrigL1Calo-00-00-64; DataVector<xAOD::JEMHits_v1>
 1252363455; xAOD::BCMRawDataAuxContainer; xAODLuminosity-00-00-05; xAOD::BCMRawDataAuxContainer_v1
 1253285755; CaloRingsContainer; TrigBSExtraction-00-00-54; CaloRingsContainer
-1253454202; Muon::RpcPrepDataContainer; MuonGeoModelTest-04-00-17; Muon::MuonPrepDataContainer<Muon::MuonPrepDataCollection<Muon::RpcPrepData> >
+1253454202; Muon::RpcPrepDataContainer; MyAnalysisExample-00-00-00; Muon::MuonPrepDataContainer<Muon::MuonPrepDataCollection<Muon::RpcPrepData> >
 1253814833; CollectionMetadata; RegistrationServices-00-06-52; CollectionMetadata
 1254939514; xAOD::TruthVertexAuxContainer; xAODTruth-00-01-17; xAOD::TruthVertexAuxContainer_v1
 1255323120; LVL1::JEPBSCollection; TrigT1CaloEvent-00-01-21; LVL1::JEPBSCollection
@@ -1219,7 +1219,7 @@
 1281324766; xAOD::DiTauJetContainer; tauRecTools-00-02-03; DataVector<xAOD::DiTauJet_v1>
 1282354891; CscDigitCollection_vector; MuonDigitContainer-01-02-23; DataVector<CscDigitCollection>
 1284088780; Trk::VxSecVertexInfoContainer; TrigInDetEvent-00-01-56; DataVector<Trk::VxSecVertexInfo>
-1285567354; CscInternalAlignmentMapContainer; MuonGeoModel-01-09-23; std::map<Identifier,CscInternalAlignmentPar*,std::less<Identifier>,std::allocator<std::pair<Identifier const,CscInternalAlignmentPar*> > >
+1285567354; CscInternalAlignmentMapContainer; MyAnalysisExample-00-00-00; std::map<Identifier,CscInternalAlignmentPar*,std::less<Identifier>,std::allocator<std::pair<Identifier const,CscInternalAlignmentPar*> > >
 1285854532; xAOD::JetTrigAuxContainer; TrigSteeringEvent-01-06-30; xAOD::JetTrigAuxContainer_v1
 1287425431; xAOD::TrackParticleContainer; MyAnalysisExample-00-00-00; DataVector<xAOD::TrackParticle_v1>
 1287744961; xAOD::JetRoIAuxContainer; TrigSteeringEvent-01-06-30; xAOD::JetRoIAuxContainer_v2
@@ -1301,7 +1301,7 @@
 1321216362; xAOD::CPMRoIAuxContainer; xAODTrigL1Calo-00-00-64; xAOD::CPMRoIAuxContainer_v1
 1324108263; DataVector<INavigable4Momentum>; CaloEvent-01-09-09; DataVector<INavigable4Momentum>
 1324847776; TRT_BSErrContainer; TRT_ConditionsServices-01-01-11; DataVector<std::pair<unsigned char,unsigned int> >
-1324994866; ALineMapContainer; MuonGeoModel-01-09-23; std::map<Identifier,ALinePar*,std::less<Identifier>,std::allocator<std::pair<Identifier const,ALinePar*> > >
+1324994866; ALineMapContainer; MyAnalysisExample-00-00-00; std::map<Identifier,ALinePar*,std::less<Identifier>,std::allocator<std::pair<Identifier const,ALinePar*> > >
 1325664490; GeoBorderSurfaceContainer; LUCID_GeoModel-00-01-20; std::vector<GeoBorderSurface,std::allocator<GeoBorderSurface> >
 1327042225; xAOD::TrigTrackCountsContainer; TrigSteeringEvent-01-06-30; DataVector<xAOD::TrigTrackCounts_v1>
 1327319901; CaloCellLinkContainer; CaloEvent-01-09-09; CaloCellLinkContainer
@@ -1329,11 +1329,11 @@
 1341715947; L1CaloPprDisabledChannelContainer; TrigT1CaloCalibConditions-00-03-31; L1CaloPprDisabledChannelContainer
 1341820669; xAOD::MuonSegmentAuxContainer; xAODMuon-00-18-06; xAOD::MuonSegmentAuxContainer_v1
 1341992142; ElectronContainer; egammaEvent-04-00-14; ElectronContainer
-1353454203; Muon::TgcPrepDataContainer; MuonGeoModelTest-04-00-17; Muon::MuonPrepDataContainer<Muon::MuonPrepDataCollection<Muon::TgcPrepData> >
+1353454203; Muon::TgcPrepDataContainer; MyAnalysisExample-00-00-00; Muon::MuonPrepDataContainer<Muon::MuonPrepDataCollection<Muon::TgcPrepData> >
 1473853273; MuonCaloEnergyContainer; eflowEvent-00-02-76; MuonCaloEnergyContainer
 1500000300; CavernInfraDetectorManager; CavernInfraGeoModel-00-00-29; CavernInfraDetectorManager
 1725646416; ParticleBaseContainer; ParticleEvent-00-22-30; DataVector<ParticleBase>
-2011800034; Muon::TgcPrepDataCollection; MuonPrepRawData-05-00-10; Muon::MuonPrepDataCollection<Muon::TgcPrepData>
-2041800033; Muon::RpcPrepDataCollection; MuonPrepRawData-05-00-10; Muon::MuonPrepDataCollection<Muon::RpcPrepData>
-2061800032; Muon::MdtPrepDataCollection; MuonPrepRawData-05-00-10; Muon::MuonPrepDataCollection<Muon::MdtPrepData>
-2081800031; Muon::CscPrepDataCollection; MuonPrepRawData-05-00-10; Muon::MuonPrepDataCollection<Muon::CscPrepData>
+2011800034; Muon::TgcPrepDataCollection; MyAnalysisExample-00-00-00; Muon::MuonPrepDataCollection<Muon::TgcPrepData>
+2041800033; Muon::RpcPrepDataCollection; MyAnalysisExample-00-00-00; Muon::MuonPrepDataCollection<Muon::RpcPrepData>
+2061800032; Muon::MdtPrepDataCollection; MyAnalysisExample-00-00-00; Muon::MuonPrepDataCollection<Muon::MdtPrepData>
+2081800031; Muon::CscPrepDataCollection; MyAnalysisExample-00-00-00; Muon::MuonPrepDataCollection<Muon::CscPrepData>

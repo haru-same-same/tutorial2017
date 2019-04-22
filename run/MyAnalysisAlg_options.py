@@ -47,4 +47,13 @@ print job
 # Tools
 #-----------------------------------------------------------------------------
 ToolSvc += CfgMgr.CP__MuonSelectionTool("MyMuonSelectionTool",MuQuality=2)
+
+#-----------------------------------------------------------------------------
+# Geometries
+#-----------------------------------------------------------------------------
+from AthenaCommon.DetFlags import DetFlags
+DetFlags.detdescr.Muon_setOn()
+
+from AtlasGeoModel import SetGeometryVersion
+from AtlasGeoModel import GeoModelInit
 #-----------------------------------------------------------------------------

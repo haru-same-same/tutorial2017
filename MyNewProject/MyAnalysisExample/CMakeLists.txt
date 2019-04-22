@@ -23,7 +23,9 @@ atlas_add_component( MyAnalysisExample
 		     src/*.cxx
 		     INCLUDE_DIRS ${ROOT_INCLUDE_DIRS}
 		     LINK_LIBRARIES AthenaBaseComps ${ROOT_INCLUDE_DIRS} GaudiKernel xAODEventInfo xAODMuon MuonIdHelpersLib MuonPrepRawData 
-             MuonSelectorToolsLib)
+             MuonSelectorToolsLib
+             MuonIdHelpersLib
+             MuonPrepRawData)
 
 # Install files from the package:
 atlas_install_joboptions( share/MyAnalysisAlg_options.py )
