@@ -133,37 +133,6 @@ StatusCode MyAnalysisAlg::execute() {
   double m_muon_eta_2 = 0;
   double m_muon_inv_mass = 0;
  
-  //TGC hits
-  const Muon::TgcPrepDataContainer *tgcContainer = 0;
-  sc = evtStore()->retrieve(tgcContainer,"TGC_MeasurementsAllBCs");
- 
-  if(StatusCode::SUCCESS != sc || !tgcContainer){
-    ATH_MSG_WARNING("Could not retrieve Muons");
-    return StatusCode::SUCCESS;
-  }
- 
-  Muon::TgcPrepDataContainer::const_iterator tpdc_it;
-  Muon::TgcPrepDataCollection::const_iterator cit;
- 
-  for(tpdc_it = tgcContainer->begin(); tpdc_it != tgcContainer->end(); tpdc_it++){
-    for(cit = (*tpdc_it)->begin(); cit != (*tpdc_it)->end(); cit++){
-        const Muon::TgcPrepData *tgc = *cit;
-        
-        //only current bunch hits
-        if((tgc->getBcBitMap()&Muon::TgcPrepData::BCBIT_CURRENT)!=Muon::TgcPrepData::BCBIT_CURRENT)
-            continue;
-        
-        const TgcIdHelper& tgcIdHelper = m_idHelper->tgcIdHelper();
-        const MuonGM::TgcReadoutElement *element = tgc->detectorElement();
-        const Identifier id = tgc->identify();
-        const int gasGap = tgcIdHelper.gasGap(id);
-        const int channel = tgcIdHelper.channel(id);
-        const bool isStrip = tgcIdHelper.isStrip(id);
-        const Amg::Vector3D& pos = isStrip ? element->stripPos(gasGap,channel) : element->gangPos(gasGap,channel);
-        m_h2_tgc_x_y->Fill(pos[0],pos[1]);
-    }
-  } 
- 
   //Muon
   const xAOD::MuonContainer *muonContainer = 0;
   sc = evtStore()->retrieve(muonContainer,"Muons");
@@ -231,6 +200,37 @@ StatusCode MyAnalysisAlg::execute() {
     m_h_muon_inv_mass->Fill(m_muon_inv_mass/1000.);
   }
     
+  //TGC hits
+  const Muon::TgcPrepDataContainer *tgcContainer = 0;
+  sc = evtStore()->retrieve(tgcContainer,"TGC_MeasurementsAllBCs");
+ 
+  if(StatusCode::SUCCESS != sc || !tgcContainer){
+    ATH_MSG_WARNING("Could not retrieve Muons");
+    return StatusCode::SUCCESS;
+  }
+ 
+  Muon::TgcPrepDataContainer::const_iterator tpdc_it;
+  Muon::TgcPrepDataCollection::const_iterator cit;
+ 
+  for(tpdc_it = tgcContainer->begin(); tpdc_it != tgcContainer->end(); tpdc_it++){
+    for(cit = (*tpdc_it)->begin(); cit != (*tpdc_it)->end(); cit++){
+        const Muon::TgcPrepData *tgc = *cit;
+        
+        //only current bunch hits
+        if((tgc->getBcBitMap()&Muon::TgcPrepData::BCBIT_CURRENT)!=Muon::TgcPrepData::BCBIT_CURRENT)
+            continue;
+        
+        const TgcIdHelper& tgcIdHelper = m_idHelper->tgcIdHelper();
+        const MuonGM::TgcReadoutElement *element = tgc->detectorElement();
+        const Identifier id = tgc->identify();
+        const int gasGap = tgcIdHelper.gasGap(id);
+        const int channel = tgcIdHelper.channel(id);
+        const bool isStrip = tgcIdHelper.isStrip(id);
+        const Amg::Vector3D& pos = isStrip ? element->stripPos(gasGap,channel) : element->gangPos(gasGap,channel);
+        m_h2_tgc_x_y->Fill(pos[0],pos[1]);
+    }
+  } 
+ 
   m_nMuons = static_cast<int>(nMuons);
   int nbytes = m_tree->Fill();
   ATH_MSG_DEBUG("Number of bytes written = " << nbytes);
